@@ -8,4 +8,5 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true # 一意性　他に同じデータがないという意味end
   has_secure_password
+  validates :password, presence: true, length: { minimum: 6 } # 存在性presence
 end
