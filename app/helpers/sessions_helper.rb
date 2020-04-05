@@ -4,6 +4,11 @@ module SessionsHelper
     session[:user_id] = user.id
   end 
   
+  def log_out # セッションと＠current_userを破棄
+    session.delete(:user_id)
+    @current_user = nil
+  end  
+  
   # 現在ログイン中のユーザーがいる場合オブジェクトを返す
   def  current_user
     if session[:user_id]
