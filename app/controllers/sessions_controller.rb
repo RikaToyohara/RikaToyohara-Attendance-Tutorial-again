@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   
   def destroy
     # ログイン中の場合のみログアウト処理を実行
-    log_out if loggen_in?
+    log_out if logged_in?
     flash[:success] = 'ログアウトしました。'
     redirect_to root_url
   end  
