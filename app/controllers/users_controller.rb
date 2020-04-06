@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end 
   
+  def edit
+    @user = User.find(params[:id])
+  end  
+  
   private 
         # このキー以降のコードをわかりやすくするため、以降字下げ
     def user_params
