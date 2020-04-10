@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :logged_in_user, only: [:show, :edit, :update] # editとupdateアクションが実行される直前にloged_in_userが実行される
-  before_action :correct_user, only: [:edit, :update]                                                          
+  before_action :correct_user, only: [:edit, :update] 
+  
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+  
   def show
-    @user = User.find(params[:id])
   end  
     
   def new
